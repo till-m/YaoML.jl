@@ -15,7 +15,7 @@ Generates data similar to the `qiskit_machine_learning.datasets.ad_hoc_data` fun
 * `seed::Union{Int, Nothing} = nothing`: The seed for the random generator.
 * `shuffle::Bool = false`: Whether to shuffle the output. If false, the output will be ordered by class.
 """
-function ad_hoc_data(n::Int, gap::Float; seed::Union{Int, Nothing}=nothing, shuffle::Bool=false)
+function ad_hoc_data(n::Int, gap::Float64; seed::Union{Int, Nothing}=nothing, shuffle::Bool=false)
     if !isnothing(seed)
         Random.seed!(seed)
     end
