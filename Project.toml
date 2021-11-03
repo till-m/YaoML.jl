@@ -2,3 +2,10 @@ name = "YaoML"
 uuid = "cee3cced-99fb-42f0-8dd2-a68c1c6c1fac"
 authors = ["till-m <tmuser@ethz.ch>"]
 version = "0.1.0"
+
+[deps]
+LIBSVM = "b1bec4e5-fd48-53fe-b0cb-9723c09d164b"
+Yao = "5872b779-8223-5990-8dd0-5abbb0748c8c"
+
+[compat]
+LIBSVM = "^0.7.0"
