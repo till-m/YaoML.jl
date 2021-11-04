@@ -1,7 +1,8 @@
 module YaoML
 
-export make_kernel, make_gram, ad_hoc_data
 include("QSVM.jl")
+export qsvmtrain, qsvmpredict
 include("datasets.jl")
+export ad_hoc_data
 
 end # module
