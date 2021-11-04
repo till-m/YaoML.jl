@@ -1,6 +1,23 @@
 import Random
 import LinearAlgebra
 
+function partition(indices::Base.OneTo{Int64}, fraction::Float64;
+    shuffle::Bool=false,
+    seed::Union{Int, Nothing}=nothing)
+
+    if shuffle && !isnothing(seed)
+        Random.seed!(seed)
+    end
+
+    n_1 = Int(fraction * indices.stop)
+    if shuffle
+        shuffled = Random.shuffle(1:indices.stop)
+        return indices[shuffled[1:n_1]], indices[shuffled[(n_1+1):end]]
+    else
+        return indices[1:n_1], indices[(n_1+1):end]
+    end
+end
+
 """ 
     ad_hoc_data(
         n::Int, gap::Float;
@@ -119,7 +136,7 @@ function ad_hoc_data(n::Int, gap::Float64; seed::Union{Int, Nothing}=nothing, sh
     samples = vcat(sample_a, sample_b)
     if shuffle
         perm = Random.randperm(2*n)
-        return samples[perm], y[perm]
+        return samples[perm, :], y[perm]
     end
     return samples, y
 end
