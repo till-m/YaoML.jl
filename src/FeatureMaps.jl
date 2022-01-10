@@ -17,4 +17,22 @@ function zz_feature_map(x)
     return qc
 end
 
+function two_local_demo(theta)
+    # mirrors https://qiskit.org/documentation/stable/0.24/tutorials/machine_learning/03_vqc.html
+    qc = nothing
+    for i=1:4
+        ry = Yao.kron(Yao.Ry(theta[4*i-3]), Yao.Ry(theta[4*i-2]))
+        rz = Yao.kron(Yao.Rz(theta[4*i-1]), Yao.Ry(theta[4*i]))
+        
+        if i==1
+            qc = Yao.chain(ry, rz, Yao.cnot(1,2))
+        elseif i ==4
+            qc = Yao.chain(qc, ry, rz)
+        else
+            qc = Yao.chain(qc, ry, rz, Yao.cnot(1,2))
+        end
+    end
+    return qc
+end
+
 end # module
