@@ -6,7 +6,6 @@ version = "0.1.0"
 [deps]
 LIBSVM = "b1bec4e5-fd48-53fe-b0cb-9723c09d164b"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-LossFunctions = "30fc2ffe-d236-52d8-8643-a9d8f7c094a7"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Yao = "5872b779-8223-5990-8dd0-5abbb0748c8c"
 
