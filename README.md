@@ -44,7 +44,6 @@ feature_map = FeatureMaps.zz_feature_map
 variational_map = FeatureMaps.two_local_demo
 
 # First argument of `circuit` is data, second argument will be optimized over
-
 circuit = (x, theta) -> Yao.chain(feature_map(x), variational_map(theta))
 
 # Initialize the VQC
